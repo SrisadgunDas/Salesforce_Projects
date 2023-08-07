@@ -1,0 +1,32 @@
+<template>
+    <template lwc:if={isBaseTextVisible}>
+        <div class={messageStyle}>
+            <lightning-formatted-rich-text value={strMessage}></lightning-formatted-rich-text>
+        </div>
+    </template>
+        <template lwc:if={islocation_avaliable}>
+            <c-lookup_-location input-params={strMessage} onpostmessage={handlePostMessage}></c-lookup_-location>
+            </template>
+            <template lwc:if={gmap} >
+                <c-lwcchatpack_gmap  input-params={strMessage} onpostmessage={handlePostMessage}></c-lwcchatpack_gmap>
+            </template>
+            <template lwc:if={datapicker_Bol} >
+                <c-data-picker input-params={strMessage} onpostmessage={handlePostMessage}></c-data-picker>
+            </template>
+            <template lwc:if={is_uploading} >
+                <c-file-upload input-params={strMessage} onpostmessage={handlePostMessage}></c-file-upload>
+            </template>
+            <template lwc:if={is_Flow_To_Lwc} >
+                <c-flow_-t-o_-lwc></c-flow_-t-o_-lwc>
+            </template>
+            
+
+            <template lwc:if={is_flowavialable} >
+                <c-community_flow  ></c-community_flow>
+            </template>
+
+
+
+
+           
+        </template>

@@ -1,0 +1,54 @@
+<template>
+    <div class="slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small">
+        Available Apartments
+        <template if:true={apartmentDetails}>
+            <div class="image-container">
+                <template if:true={showImage}>
+                    <div class="image-wrapper">
+                        <div class="slide-info">
+                            <p><strong>{currentApartment.Name}</strong></p>
+                            <p>Total Price: {currentApartment.Apartment_TotalPrice__c}</p>
+                            <p>Bed Rooms: {currentApartment.Bed_Rooms__c}</p>
+                            <p>Issued Date: {currentApartment.issued_Date__c}</p>
+                        </div>
+                        <button onclick={sendsData}>
+                        <img src={currentApartment.Apartment_url__c} alt="Apartment" class="gallery-image" />
+                    </button>
+                    </div>
+                </template>
+                <div class="button-container">
+                    <button class="slds-button slds-button_icon" onclick={showPrevious}>
+                        <lightning-icon icon-name="utility:left" alternative-text="Previous"></lightning-icon>
+                    </button>
+                    <button class="slds-button slds-button_icon" onclick={showNext}>
+                        <lightning-icon icon-name="utility:right" alternative-text="Next"></lightning-icon>
+                     
+                    </button>
+                </div>
+               
+            </div>
+        </template>
+        <template if:false={apartmentDetails}>
+            No apartments available.
+        </template>
+        <template lwc:if={ifTruId}>
+        
+            <lightning-flow if:true={is_flowavailable} flow-api-name="Lwc_Sending" flow-input-variables={flowvariables}></lightning-flow>
+        </template>
+    </div>
+        <template if:true={emailisvisable}>
+            <div style="display: flex; justify-content: space-between;">
+                <div style="flex: 1;">
+       <lightning-input type="email" variant="standard" required label="Please Provide Your Email" onchange={handlechange}></lightning-input>
+                </div>
+                <div style="margin-left: 10px;">
+                    <lightning-button variant="success" label="Send" onclick={SendingEmailClick}></lightning-button>
+                </div>
+            </div>
+        </template>
+    </template>
+    
+    
+    
+    
+</template>

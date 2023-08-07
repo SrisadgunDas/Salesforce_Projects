@@ -1,0 +1,10 @@
+<template>
+    <lightning-card title="User Details">
+      <div class="slds-p-horizontal_medium slds-p-vertical_medium">
+        <lightning-input label="Name" value={name} onchange={handleNameChange}></lightning-input>
+        <lightning-input label="Email" value={email} onchange={handleEmailChange}></lightning-input>
+        <lightning-input label="Phone" value={phone} onchange={handlePhoneChange}></lightning-input>
+        <lightning-button label="Submit" variant="brand" onclick={handleSubmit}></lightning-button>
+      </div>
+    </lightning-card>
+  </template>
